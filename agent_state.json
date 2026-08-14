@@ -1,0 +1,13 @@
+{
+  "phase": "research",
+  "context": {
+    "gaps": [],
+    "cached_literature": [],
+    "target_property": ""
+  },
+  "api_stats": {
+    "total_calls": 0,
+    "cache_hits": 0,
+    "errors": 0
+  }
+}
