@@ -6,7 +6,7 @@ from openai import OpenAI
 import gap_analyzer
 import keyword_generator
 import literature_searcher
-from common import TOOL_REGISTRY, get_tools_list
+from common import TOOL_REGISTRY, _safe_parse_llm_json, get_tools_list
 from config import CONFIG, PHASE_ORDER, PHASE_PROMPTS, SYSTEM_PROMPT, llm_client, state
 from literature_searcher import sciverse_client
 
@@ -211,7 +211,9 @@ def run_agent(user_message: str, max_tool_rounds: int = None):
 
         # 只有 final_verify 阶段才允许解析 JSON 并结束
         try:
-            parsed = json.loads(content)
+            parsed = _safe_parse_llm_json(content)
+            if "parse_error" in parsed:
+                raise json.JSONDecodeError("parse_error", content, 0)
             print(f"[Round {round_num}] 🎉 JSON解析成功，Agent完成")
             print(f"📊 搜索统计: 总计 {total_round} 轮工具调用, {len(executed_queries)} 次不重复查询")
             return parsed

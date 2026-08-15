@@ -5,13 +5,18 @@ import os
 from openai import OpenAI
 
 
+def _env(name: str, default: str = "") -> str:
+    """从环境变量读取配置，未设置时返回默认值。"""
+    return os.environ.get(name, "").strip() or default
+
+
 CONFIG = {
     # ── Sciverse 学术搜索引擎 API Token ──
     # 用途：认证 Sciverse meta-search API，用于文献检索
-    # 当前值：sci_VkRKcabBShWDa35JKl-GrF_GC0FEY7qcFNWDN-MexBs
+    # 已迁移到环境变量读取（SCIVERSE_TOKEN）
     # 如果要换：到 https://sciverse.space 申请新的 Token，粘贴替换此值
     # 修改此值时需要同步检查：SCIVERSE_DATA_DIR（数据目录）、sciverse_client 实例化
-    "sciverse_token": "sci_VkRKcabBShWDa35JKl-GrF_GC0FEY7qcFNWDN-MexBs",
+    "sciverse_token": _env("SCIVERSE_TOKEN"),
 
     # ── DeepSeek LLM API Key ──
     # 用途：调用大语言模型（用于 Agent 推理、GA 评估、可证伪性检查等）
@@ -20,7 +25,7 @@ CONFIG = {
     # 如果换提供商（如 OpenAI、智谱）：同时修改 llm_base_url 和 llm_model
     # 修改此值时需要同步检查：llm_base_url、llm_model
     # 由于github政策问题，需测试员自己寻找api并填写上。
-    "deepseek_key":"sk-ff0330965a4e4c19b287fa34af54f930",
+    "deepseek_key": _env("DEEPSEEK_API_KEY"),
 
     # ── LLM API 基础 URL ──
     # 用途：指定 LLM API 的端点地址
@@ -31,7 +36,7 @@ CONFIG = {
     #   - 本地 Ollama: "http://localhost:11434/v1"
     #   - 硅基流动:    "https://api.siliconflow.cn/v1"
     # 修改此值时需要同步检查：deepseek_key、llm_model
-    "llm_base_url": "https://api.deepseek.com/v1",
+    "llm_base_url": _env("LLM_BASE_URL", "https://api.deepseek.com/v1"),
 
     # ── LLM 模型名称 ──
     # 用途：指定调用的具体模型，影响推理质量和速度
@@ -44,7 +49,7 @@ CONFIG = {
     #   - qwen/qwen2.5-72b-instruct （硅基流动上的通义千问）
     # ⚠️ 注意：本项目的结构化解析和工具调用统一关闭思考模式
     # 修改此值时需要同步检查：deepseek_key、llm_base_url
-    "llm_model": "deepseek-v4-pro",
+    "llm_model": _env("LLM_MODEL", "deepseek-chat"),
 
     # ── 搜索阶段轮次配置 [v3新增] ──
 # 双循环阶段化搜索：每个阶段的最大轮次

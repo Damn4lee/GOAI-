@@ -1,0 +1,5 @@
+# 依赖声明（版本下限，如有兼容问题请按实际环境调整）
+openai>=1.35
+crewai>=0.80
+langgraph>=0.2
+typing_extensions>=4.9

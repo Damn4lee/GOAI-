@@ -1,0 +1,23 @@
+# API 密钥与本地配置
+.env
+.env.local
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 运行时产物（不要提交）
+sciverse_cache.json
+log.txt
+agent_state.json
+ga_results.json
+ga_log.txt
+AI科研助手专用目录/
+outputs/
+
+# Notebook 检查点
+.ipynb_checkpoints/
+
+# 系统文件
+.DS_Store
+Thumbs.db

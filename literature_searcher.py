@@ -370,7 +370,7 @@ class SciverseClient:
         """调用论文关系端点。"""
         payload = {
             "unique_id": unique_id,
-            "relation_type": relation_type,
+            "relation": relation_type,  # [修复] API 要求字段名为 relation（此前 400 报错）
             "page_size": page_size,
         }
         return self._call_endpoint(
