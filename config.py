@@ -5,6 +5,13 @@ import os
 from openai import OpenAI
 
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+
 def _env(name: str, default: str = "") -> str:
     """从环境变量读取配置，未设置时返回默认值。"""
     return os.environ.get(name, "").strip() or default

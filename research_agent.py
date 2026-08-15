@@ -209,6 +209,21 @@ def run_agent(user_message: str, max_tool_rounds: int = None):
             phase_round_count += 1
             continue
 
+    raise RuntimeError(
+        f"Agent超过最大轮次({max_tool_rounds})仍未产出有效JSON。"
+        f"已执行{len(executed_queries)}次不重复工具调用。"
+    )
+
+
+if __name__ == "__main__":
+    import sys
+
+    question = " ".join(sys.argv[1:]).strip()
+    if not question:
+        question = "请检索近10年关于Mg掺杂LiFePO4正极材料的实验研究。"
+    result = run_agent(question)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
         # 只有 final_verify 阶段才允许解析 JSON 并结束
         try:
             parsed = _safe_parse_llm_json(content)

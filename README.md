@@ -17,13 +17,13 @@
    ```
 
    然后在 `.env` 中填入 `SCIVERSE_TOKEN` 与 `DEEPSEEK_API_KEY`。
-   `config.py` 会从环境变量读取这些值；未设置时会给出明确报错。
+   `config.py` 会自动加载 `.env`（python-dotenv）并读取这些值；未设置时会给出明确报错。
 
 3. 运行
 
    ```bash
-   # 阶段化搜索 Agent（问题作为参数）
-   python research_agent.py
+   # 阶段化搜索 Agent（把研究问题作为参数传入）
+   python research_agent.py "你的研究问题"
 
    # LangGraph 状态图流程
    python research_state_graph.py
