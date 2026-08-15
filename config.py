@@ -2,8 +2,42 @@
 
 import json
 import os
+import sys
 from openai import OpenAI
 
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+
+def _load_dotenv_simple():
+    """手动解析 .env（不依赖 python-dotenv），未设置的环境变量用文件值填充。"""
+    candidates = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"),
+        ".env",
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
+                        key, _, value = line.partition("=")
+                        key = key.strip()
+                        value = value.strip().strip('"').strip("'")
+                        if key:
+                            os.environ.setdefault(key, value)
+            except OSError:
+                pass
+            break
+
+
+_load_dotenv_simple()
 
 try:
     from dotenv import load_dotenv
