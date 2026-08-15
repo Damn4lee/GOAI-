@@ -15,11 +15,12 @@ CONFIG = {
 
     # ── DeepSeek LLM API Key ──
     # 用途：调用大语言模型（用于 Agent 推理、GA 评估、可证伪性检查等）
-    # 当前值：sk-ff0330965a4e4c19b287fa34af54f930
+    # 当前值：
     # 如果要换：到 https://platform.deepseek.com/api_keys 生成新 Key，粘贴替换
     # 如果换提供商（如 OpenAI、智谱）：同时修改 llm_base_url 和 llm_model
     # 修改此值时需要同步检查：llm_base_url、llm_model
-    "deepseek_key": "sk-ff0330965a4e4c19b287fa34af54f930",
+    # 由于github政策问题，需测试员自己寻找api并填写上。
+    "deepseek_key":"sk-ff0330965a4e4c19b287fa34af54f930",
 
     # ── LLM API 基础 URL ──
     # 用途：指定 LLM API 的端点地址

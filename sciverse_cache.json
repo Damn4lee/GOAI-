@@ -22278,5 +22278,862 @@
     "biz_code": 0,
     "code": "SUCCESS",
     "message": "成功"
+  },
+  "7c37661d109711e19a4645997b8f89d0": {
+    "results": [
+      {
+        "type": [
+          "article"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "",
+        "cited_by_percentile_year": {
+          "min": 96.0,
+          "max": 99.0
+        },
+        "isbn13": "",
+        "metadata_type": "paper",
+        "citation_count": 33.0,
+        "abstract": "Composition regulate and morphology control can lead to LiFePO4 cathode material with high physicochemical properties for practical applications. Herein, we report a facile solid-phase method to design and synthesize Mg-doped carbon-coated porous spherical LiFePO4/C composite with ultralow carbon content (1.6 wt%) and high tap-density (1.13 g/cm3). It shows that the LiFePO4/C maintains an olivine-type crystal structure with tiny amounts of Mg doping, and the cell parameters can be optimized with a Mg doping content of 0.03 (LiMg0·03Fe0·97PO4/C). In the structure of optimized LiMg0·03Fe0·97PO4/C, well-crystallized LiMg0·03Fe0·97PO4 particles with a diameter of ∼100 nm are uniformly covered by a carbon layer of ∼3 nm to form primary LiMg0·03Fe0·97PO4/C, which are assembled into standard spherical-shaped secondary particles with a diameter of few microns to tens of microns. Benefiting from the contributions of morphology controlling, Mg doping and carbon coating, LiMg0·03Fe0·97PO4/C manifests excellent rate and cycle performance, which exhibits capacities of 158, 145 and 105 mA h g−1 at 0.2C, 1C and 10C, respectively, as well as a capacity attenuation rate of 0.02% per cycle during 1000 cycles at a high rate of 10C.",
+        "publication_publisher": [
+          "Elsevier BV"
+        ],
+        "access_oa_status": "closed",
+        "relevance_score": 49.056297,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Materials Chemistry and Physics",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://doi.org/10.1016/j.matchemphys.2022.125711"
+          }
+        ],
+        "publication_published_year": 2022.0,
+        "access_is_oa": "false",
+        "doi": "10.1016/j.matchemphys.2022.125711",
+        "unique_id": "paper:10.1016/j.matchemphys.2022.125711",
+        "keywords": [
+          "Materials science",
+          "Doping",
+          "Electrochemistry",
+          "Porosity",
+          "Carbon fibers",
+          "Chemical engineering",
+          "Phase (matter)",
+          "Cathode",
+          "Crystal (programming language)",
+          "Composite number",
+          "Morphology (biology)",
+          "Nanotechnology",
+          "Analytical Chemistry (journal)",
+          "Composite material",
+          "Electrode",
+          "Optoelectronics",
+          "Chemistry",
+          "Chromatography",
+          "Mg doping",
+          "Lithium-ion batteries",
+          "Carbothermic reduction",
+          "Electrochemical performance"
+        ],
+        "doc_id": "336738415018402851d396b896cea5c8f378ca0a51b6141a5bcf2722e078eeab",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.90607802,
+          "is_in_top_10_percent": "true",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [
+          "0254-0584",
+          "1879-3312"
+        ],
+        "fwci": 2.7698,
+        "reference_count": 53.0,
+        "title": "Mg-doped porous spherical LiFePO4/C with high tap-density and enhanced electrochemical performance",
+        "author": [
+          {
+            "orcid": "",
+            "name": "Chuanmin Yan"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-1940-3892",
+            "name": "Kaipeng Wu"
+          },
+          {
+            "orcid": "",
+            "name": "Peng Jing"
+          },
+          {
+            "orcid": "https://orcid.org/0009-0004-4372-1323",
+            "name": "Hang Luo"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0001-7505-1097",
+            "name": "Yun Zhang"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "type": [
+          "article"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "",
+        "cited_by_percentile_year": {
+          "min": 98.0,
+          "max": 99.0
+        },
+        "isbn13": "",
+        "metadata_type": "paper",
+        "influential_citation_count": 1.0,
+        "citation_count": 29.0,
+        "abstract": "Layered lithium cobalt oxide (LiCoO2, LCO), which serves as a structural motif for the widely adopted layered cathodes in lithium-ion batteries, has a long history, and its unstable phase transition during high-voltage operation (∼4.5 V) remains an intractable problem. Many research strategies, such as surface coating and immobile ion doping, have been proposed to address this issue, but a clear understanding of the effects has not been demonstrated because of various potential parameters (e.g., particle size, shape, and dopant content). Herein, we report a molten salt synthesis method that produces sphere-like single-crystal magnesium (Mg)-doped LCO. In situ X-ray diffraction and X-ray absorption fine structure analyses confirmed that the lattice strain was effectively alleviated by the effects of both the particle shape and Mg doping compared to the plate-like and sphere-like single-crystal LCO samples. Furthermore, the preference for Mg doping in the Co site (3b) rather than in the Li site (3a) in the LCO framework is systematically revealed, and a clear understanding of Mg doping that suppresses the monoclinic phase transition is discussed in detail.",
+        "publication_publisher": [
+          "American Chemical Society"
+        ],
+        "access_oa_status": "closed",
+        "relevance_score": 41.24472,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "ACS Appl Mater Interfaces",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "unknown",
+            "license": "",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36625754"
+          },
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://doi.org/10.1021/acsami.2c17993"
+          },
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36625754"
+          },
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://scholarworks.unist.ac.kr/handle/201301/65336"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "",
+            "url": "https://doi.org/10.1021/acsami.2c17993"
+          },
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://www.lens.org/lens/search/patent/list?q=reference_cited.npl.ids.pmid:36625754"
+          }
+        ],
+        "publication_published_year": 2023.0,
+        "access_is_oa": "false",
+        "doi": "10.1021/acsami.2c17993",
+        "unique_id": "paper:10.1021/acsami.2c17993",
+        "keywords": [
+          "Mg-doping",
+          "phase transition.",
+          "lithium cobalt oxide",
+          "X-ray absorption fine structure",
+          "X-ray diffraction",
+          "Materials science",
+          "Doping",
+          "Dopant",
+          "Monoclinic crystal system",
+          "Lithium cobalt oxide",
+          "Crystal structure",
+          "Lithium (medication)",
+          "Crystallography",
+          "Nanotechnology",
+          "Chemical engineering",
+          "Lithium-ion battery",
+          "Optoelectronics",
+          "[\"Mg-doping\",\"X-ray absorption fine structure\",\"X-ray diffraction\",\"lithium cobalt oxide\",\"phase transition.\"]",
+          "phase transition"
+        ],
+        "doc_id": "84993a90b1cad9e0711f27a6c20db5835d486a5d6d7101a4d53e9b2683ef31e4",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.92799282,
+          "is_in_top_10_percent": "true",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [
+          "1944-8244",
+          "1944-8252"
+        ],
+        "fwci": 3.395,
+        "reference_count": 77.0,
+        "title": "Structural Evolution of Mg-Doped Single-Crystal LiCoO<sub>2</sub> Cathodes: Importance of Morphology and Mg-Doping Sites",
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0002-1241-9437",
+            "name": "Jin-Gyu Bae"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-2849-9670",
+            "name": "Ju‐Hyeon Lee"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-2849-9670",
+            "name": "Ju‐Hyeon Lee"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-0768-8413",
+            "name": "Min Sung Kim"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-3471-3020",
+            "name": "Byung Gon Kim"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-0578-5826",
+            "name": "Hyeon Jeong Lee"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-6459-7120",
+            "name": "Ji Hoon Lee"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-6459-7120",
+            "name": "Ji Hoon Lee"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "type": [
+          "article"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "",
+        "cited_by_percentile_year": {},
+        "isbn13": "",
+        "metadata_type": "paper",
+        "influential_citation_count": 0.0,
+        "citation_count": 0.0,
+        "abstract": "Abstract— Carbon-coated composites based on LiFePO4 with the olivine structure have been prepared by the Pechini method. The materials have been characterized by X-ray diffraction, scanning electron microscopy, thermogravimetric analysis, and Raman spectroscopy. Optimizing the LiFePO4 precursor heat treatment conditions, we have obtained LiFePO4 with the olivine structure and a primary particle size of ~30 nm. On the addition of 0.2 wt % silver to the composite, a cathode material with improved electrochemical performance has been obtained. The discharge capacity of the resultant material at cycling current densities of 20 (C/8), 1600 (10C), and 3200 mA/g (20 C) is 166, 85, and 53 mAh/g, respectively.",
+        "publication_publisher": [
+          "Pleiades Publishing",
+          "Springer Nature"
+        ],
+        "access_oa_status": "closed",
+        "relevance_score": 39.550022,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Inorganic Materials",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://doi.org/10.1134/s0020168522070111"
+          },
+          {
+            "type": "",
+            "is_oa": "unknown",
+            "license": "",
+            "url": "https://link.springer.com/article/10.1134/S0020168522070111"
+          }
+        ],
+        "publication_published_year": 2022.0,
+        "access_is_oa": "false",
+        "doi": "10.1134/s0020168522070111",
+        "unique_id": "paper:10.1134/s0020168522070111",
+        "keywords": [
+          "olivine",
+          "lithium-ion battery",
+          "cathode material",
+          "LiFePO4",
+          "Raman spectroscopy",
+          "Thermogravimetric analysis",
+          "Scanning electron microscope",
+          "Materials science",
+          "Cathode",
+          "Composite number",
+          "Electrochemistry",
+          "Diffraction",
+          "Chemical engineering",
+          "Particle size",
+          "Carbon fibers",
+          "Analytical Chemistry (journal)",
+          "Composite material",
+          "Chemistry",
+          "Electrode",
+          "Physical chemistry",
+          "Organic chemistry",
+          "Optics",
+          "cathode_material",
+          "lithium-ion_battery"
+        ],
+        "doc_id": "ee6212891b7add62e5f96f5e87e461363f57013c0823a08470e73324c6f565c4",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.11345481,
+          "is_in_top_10_percent": "false",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [
+          "0020-1685",
+          "1608-3172"
+        ],
+        "fwci": 0.0,
+        "reference_count": 67.0,
+        "title": "LiFePO4/C/Ag Cathode Materials Prepared by the Pechini Method",
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0002-0671-2178",
+            "name": "С. А. Новикова"
+          },
+          {
+            "orcid": "",
+            "name": "А. Б. Ильин"
+          },
+          {
+            "orcid": "",
+            "name": "D. Yu. Gryzlov"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-5838-804X",
+            "name": "Т. Л. Кулова"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0001-8446-6198",
+            "name": "A. B. Yaroslavtsev"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "type": [
+          "book-chapter"
+        ],
+        "publication_venue_type": "",
+        "access_license": "public-domain",
+        "cited_by_percentile_year": {},
+        "isbn13": "",
+        "metadata_type": "paper",
+        "citation_count": 0.0,
+        "abstract": "The lower toxicity, affordable synthesis, and high cyclability make LiFePO4 (LFP) a promising material that has attracted considerable interest in Li-ion batteries (LIBs). These characteristics with high theoretical capacity ∼170 mA h g−1 make it the ideal cathode material, with a possibility of ultrafast charging/discharging. The benefits of choosing LFP include its cheap cost, extended cycle life, ability to handle high charge and discharge rates, and more interestingly its higher structural stability. The chapter discusses the intriguing progress made thus far using LFP as a cathode for cleaner, more sustainable energy. Briefly, the chapter provides a detailed discussion on the crystal and morphological structure, and possible uses in energy storage before concentrating on the development and advancement of LFP for commercial usage. An LFP cathode is the ideal alternative over other cathode materials for Li-ion batteries as it now has commercially large-scale applications such as in hybrid electric vehicles (HEV), and in the power sector. The primary disadvantage of LFP is its ionic diffusion restrictions, which include low Li-ion diffusion kinetics and also lower electronic conductivity. The chapter covered ways to overcome these disadvantages, improve electrochemical performance as well as a method for reducing capacity losses that happen while discharging at high rates. The possible future prospects of LFP and how to scale it up for the power grid and other significant applications are also highlighted in this chapter.",
+        "publication_publisher": [],
+        "access_oa_status": "closed",
+        "relevance_score": 38.821068,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "public-domain",
+            "url": "https://doi.org/10.1039/9781837673612-00318"
+          }
+        ],
+        "publication_published_year": 2025.0,
+        "access_is_oa": "false",
+        "unique_id": "paper:10.1039/9781837673612-00318",
+        "doi": "10.1039/9781837673612-00318",
+        "keywords": [
+          "Materials science",
+          "Cathode",
+          "Engineering",
+          "Electrical engineering"
+        ],
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.27890979,
+          "is_in_top_10_percent": "false",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [],
+        "fwci": 0.0,
+        "title": "LiFePO4 as a Cathode Material",
+        "reference_count": 89.0,
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0001-6845-3426",
+            "name": "Anant Prakash Pandey"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0003-4167-2412",
+            "name": "Jitendra Kumar Yadav"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0003-2285-0754",
+            "name": "Ambesh Dixit"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "type": [
+          "article"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "",
+        "cited_by_percentile_year": {
+          "min": 90.0,
+          "max": 96.0
+        },
+        "isbn13": "",
+        "metadata_type": "paper",
+        "influential_citation_count": 0.0,
+        "citation_count": 4.0,
+        "abstract": "A high energy density LiFePO 4 /C material for lithium batteries was synthesized by controlled crystallization-carbothermal reaction, which has been experienced as an effective process for mass production of electrode materials. The structure and morphology of the LiFePO 4 /C material were characterized by X-ray diffraction and Scanning Electron Microscope (SEM). The electrochemical properties of the synthesized nano-LiFePO 4 /C were investigated by charge-discharge processing and cyclic voltammetry (CV). The initial discharge capacities of the LiFePO 4 /C battery were 163.9, 158.4, 154.5, 151.4, and 142 mA h g –1 at 0.1C, 1C, 2C, 5C, and 10C, respectively. The capacity of LiFePO 4 /C material maintained 98.5% at the rate of 1C after 100 cycles, demonstrating excellent rate capability and cycling performance.",
+        "publication_publisher": [
+          "Pleiades Publishing",
+          "Springer Nature"
+        ],
+        "access_oa_status": "closed",
+        "relevance_score": 38.762993,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Russian Journal of Physical Chemistry A",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://doi.org/10.1134/s0036024415120304"
+          },
+          {
+            "type": "",
+            "is_oa": "unknown",
+            "license": "",
+            "url": "https://link.springer.com/article/10.1134/S0036024415120304"
+          }
+        ],
+        "publication_published_year": 2016.0,
+        "access_is_oa": "false",
+        "doi": "10.1134/s0036024415120304",
+        "unique_id": "paper:10.1134/s0036024415120304",
+        "keywords": [
+          "Scanning electron microscope",
+          "Materials science",
+          "Electrochemistry",
+          "Cyclic voltammetry",
+          "Lithium-ion battery",
+          "Lithium iron phosphate",
+          "Lithium (medication)",
+          "Crystallization",
+          "Chemical engineering",
+          "Battery (electricity)",
+          "Ion",
+          "Electrode",
+          "Nano-",
+          "Diffraction",
+          "Cathode",
+          "Analytical Chemistry (journal)",
+          "Composite material",
+          "Chemistry",
+          "Chromatography",
+          "Physical chemistry",
+          "Organic chemistry",
+          "lithium-ion battery",
+          "controlled crystallization",
+          "cathode material",
+          "nano-LiFePO4/C",
+          "cathode_material",
+          "lithium-ion_battery",
+          "controlled_crystallization"
+        ],
+        "doc_id": "c524a970a5ba677c5e57dbb46da5f4818b991aa9254bd978c0848e7d6513a9f9",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.21185289,
+          "is_in_top_10_percent": "false",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [
+          "0036-0244",
+          "1531-863X"
+        ],
+        "fwci": 0.0,
+        "reference_count": 14.0,
+        "title": "Preparation and performance of Nano-LiFePO4/C cathode material for lithium-ion battery",
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0002-6402-8972",
+            "name": "Xianzhong Qin"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-7020-5277",
+            "name": "Gai Yang"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-0856-2783",
+            "name": "Feng Ma"
+          },
+          {
+            "orcid": "",
+            "name": "Feipeng Cai"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "relevance_score": 38.46632,
+        "title": "Effects of Mg Doping on Electrical Performance of LiNi0.8Mn0.1Co0.1O2 Cathode Materials",
+        "type": [
+          "preprint"
+        ],
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by",
+            "url": "http://dx.doi.org/10.21203/rs.3.rs-3527265/v1"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by",
+            "url": "https://www.researchsquare.com/article/rs-3527265/latest.pdf"
+          }
+        ],
+        "publication_published_year": 2023.0,
+        "access_is_oa": "true",
+        "doi": "10.21203/rs.3.rs-3527265/v1",
+        "access_license": "cc-by",
+        "unique_id": "paper:10.21203/rs.3.rs-3527265/v1",
+        "metadata_type": "paper",
+        "isbn13": "",
+        "cited_by_percentile_year": {},
+        "keywords": [
+          "Scanning electron microscope",
+          "Materials science",
+          "Microstructure",
+          "Cathode",
+          "Electrical resistivity and conductivity",
+          "Analytical Chemistry (journal)",
+          "Calcination",
+          "Dielectric spectroscopy",
+          "Cyclic voltammetry",
+          "Doping",
+          "Carbon black",
+          "Oxide",
+          "Sintering",
+          "Conductivity",
+          "Lithium (medication)",
+          "Powder diffraction",
+          "Stoichiometry",
+          "Nuclear chemistry",
+          "Mineralogy",
+          "Electrochemistry",
+          "Metallurgy",
+          "Chemistry",
+          "Composite material",
+          "Crystallography",
+          "Electrode",
+          "Physical chemistry",
+          "Chromatography"
+        ],
+        "publication_venue_type": "repository",
+        "language": "en",
+        "citation_count": 0.0,
+        "citation_normalized_percentile": {},
+        "access_oa_url": [
+          "https://www.researchsquare.com/article/rs-3527265/latest.pdf"
+        ],
+        "publication_venue_issn": [],
+        "abstract": "Abstract The electrical and structural performance of LiNi 0.8 Mn 0.1 Co 0.1 O 2 (NMC 811) is analyzed with the doping of magnesium using a solution combustion synthesis (SCS) procedure with precursors LiNO 3 , Ni(NO) 3 .6H 2 O, Mn(NO 3 ) 2 .4H 2 O, and Co(NO 3 ) 2 .6H 2 O. The doping was done with stoichiometric calculation for the addition of MgCl 2 .6H 2 O. The reactants were dissolved in still water and stirred using a hot plate magnetic stirrer at room temperature. After fully dissolved, the solution is heated at 185 o C for 2-3 hours for the solution combustion to occur. After the product was obtained, the NMC 811 powder was calcined at 800 o C for 4 hours to obtain a fine powder. The synthesized powder morphology was analyzed through scanning electron microscopy (SEM) with an obtained surface area of 4.3 μm. X-ray Diffraction (XRD) was further employed to identify the crystal structure of the powder showing changes in microstructure in the presence of lithium nickel oxide (LNO) as a contaminant. To measure the resistance and determine how it affected the cathode's electrical conductivity, electrical impedance spectroscopy (EIS) was utilized. The outcomes demonstrated that adding a certain quantity of magnesium might improve the NMC 811's electrical conductivity. An investigation using cyclic voltammetry (CV) revealed multiple oxidation-reduction peaks as a sign of contamination.",
+        "publication_publisher": [],
+        "access_oa_status": "green",
+        "reference_count": 17.0,
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0001-6517-6726",
+            "name": "Anne Zulfia"
+          },
+          {
+            "orcid": "",
+            "name": "Muhammad Farhan Firdaus Trouerbach"
+          }
+        ],
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Research Square (Research Square)",
+        "isbns": []
+      },
+      {
+        "type": [
+          "article"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "",
+        "cited_by_percentile_year": {
+          "min": 90.0,
+          "max": 98.0
+        },
+        "isbn13": "",
+        "metadata_type": "paper",
+        "influential_citation_count": 0.0,
+        "citation_count": 11.0,
+        "abstract": "In this study, 9LiFePO<sub>4</sub>·Li<sub>3</sub>V<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub>/C (LFVP-91/C) composite cathode materials (molar ratio of LiFePO<sub>4</sub>:Li<sub>3</sub>V<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub> = 9:1) were prepared using a sol–gel (SG) technique and spray drying (SP) technique, followed by a calcination process at 650–750 °C for 10 h. Oxalic acid and citric acid were used as chelating agents, l-ascorbic acid (AA) was used as a reducing agent, and sucrose (SUC) was used as a carbon source. For improving the electrochemical properties of LFVP-91/C, different conductive carbon materials were used as carbon additives, including graphene oxide (GO), graphene nanosheet (GNS), and carbon nanotube (CNT). The experimental results show that the best discharge capacities of as-prepared SG-LFVP-91/C are approximately 151.1 mAh/g at 0.1C/0.1C, 115.2 mAh/g at 0.2C/5C, and 98.2 mAh/g at 0.2C/10C. The capacity retention after 100 cycles at 1C/1C is 84.0%. After addition of GO, the best discharge capacity retention increases to 91.66% after 100 cycles at 1C/1C. Moreover, after addition of GNS + CNT, the discharge capacity of SP-LFVP-91/C/GNS + CNT composite material increases to 160.1 mAh/g at 0.1C/0.1C, 129.3 mAh/g at 0.2C/5C, and 117.8 mAh/g at 0.2C/10C. No capacity fading is observed after 30 cycles at 0.1C/0.1C. The capacity retentions after 100 cycles and 500 cycles at 1C/1C increase to 97.58% and 85.26%, respectively. This study demonstrates that the prepared SP-LFVP-91/C/GNS + CNT composite cathode materials are excellent candidates for use in lithium-ion power batteries for electric vehicles.",
+        "publication_publisher": [
+          "Elsevier BV"
+        ],
+        "access_oa_status": "closed",
+        "relevance_score": 38.135708,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Journal of Alloys and Compounds",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://doi.org/10.1016/j.jallcom.2020.156447"
+          }
+        ],
+        "publication_published_year": 2020.0,
+        "access_is_oa": "false",
+        "doi": "10.1016/j.jallcom.2020.156447",
+        "unique_id": "paper:10.1016/j.jallcom.2020.156447",
+        "keywords": [
+          "Calcination",
+          "Graphene",
+          "Composite number",
+          "Oxalic acid",
+          "Materials science",
+          "Electrochemistry",
+          "Ascorbic acid",
+          "Citric acid",
+          "Carbon fibers",
+          "Chemical engineering",
+          "Carbon nanotube",
+          "Graphite",
+          "Nuclear chemistry",
+          "Chemistry",
+          "Composite material",
+          "Inorganic chemistry",
+          "Nanotechnology",
+          "Organic chemistry",
+          "Electrode",
+          "Catalysis",
+          "LFVP cathode Composites",
+          "Sol–gel method",
+          "Spray drying",
+          "Graphene nanosheets",
+          "Carbon nanotubes"
+        ],
+        "doc_id": "51cca07fddb1aba6785b008095fbcfec5cfaa74e78618f620be07eab3d13ad27",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.57052078,
+          "is_in_top_10_percent": "false",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [],
+        "publication_venue_issn": [
+          "0925-8388",
+          "1873-4669"
+        ],
+        "fwci": 0.3122,
+        "reference_count": 35.0,
+        "title": "Preparation of LiFePO4/Li3V2(PO4)3/C composite cathode materials and their electrochemical performance analysis",
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0001-6136-7525",
+            "name": "Wen‐Chen Chien"
+          },
+          {
+            "orcid": "",
+            "name": "Jin-Siang Jhang"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0003-1165-9444",
+            "name": "She‐Huang Wu"
+          },
+          {
+            "orcid": "",
+            "name": "Zong–Han Wu"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-3832-9800",
+            "name": "Chun‐Chen Yang"
+          }
+        ],
+        "isbns": []
+      },
+      {
+        "type": [
+          "article",
+          "review"
+        ],
+        "publication_venue_type": "journal",
+        "access_license": "cc-by",
+        "cited_by_percentile_year": {
+          "min": 94.0,
+          "max": 99.0
+        },
+        "isbn13": "",
+        "metadata_type": "paper",
+        "influential_citation_count": 1.0,
+        "citation_count": 25.0,
+        "abstract": "Polymer binders are critical auxiliary additives to Li-ion batteries that provide adhesion and cohesion for electrodes to maintain conductive networks upon charge/discharge processes. Therefore, polymer binders become interconnected electrode structures affecting electrochemical performances, especially in LiFePO4 cathodes with one-dimensional Li+ channels. In this paper, recent improvements in the polymer binders used in the LiFePO4 cathodes of Li-ion batteries are reviewed in terms of structural design, synthetic methods, and working mechanisms. The polymer binders were classified into three types depending on their effects on the performances of LiFePO4 cathodes. The first consisted of PVDF and related composites, and the second relied on waterborne and conductive binders. Profound insights into the ability of binder structures to enhance cathode performance were discovered. Overcoming the bottleneck shortage originating from olivine structure LiFePO4 using efficient polymer structures is discussed. We forecast design principles for the polymer binders used in the high-performance LiFePO4 cathodes of Li-ion batteries. Finally, perspectives on the application of future binder designs for electrodes with poor conductivity are presented to provide possible design directions for chemical structures.",
+        "publication_publisher": [
+          "Multidisciplinary Digital Publishing Institute"
+        ],
+        "access_oa_status": "gold",
+        "relevance_score": 37.887695,
+        "is_content_accessible": false,
+        "publication_venue_name_unified": "Polymers",
+        "locations": [
+          {
+            "type": "",
+            "is_oa": "unknown",
+            "license": "",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34578047"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by",
+            "url": "https://doi.org/10.3390/polym13183146"
+          },
+          {
+            "type": "",
+            "is_oa": "false",
+            "license": "",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34578047"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by-sa",
+            "url": "https://doaj.org/article/fac20576d081428b9039b58fe5ff111c"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "other-oa",
+            "url": "http://europepmc.org/pmc/articles/PMC8473138"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by",
+            "url": "https://dx.doi.org/10.3390/polym13183146"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "cc-by",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8473138"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8473138/"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "",
+            "url": "https://www.mdpi.com/resolver?pii=polym13183146"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/pmid/34578047/"
+          },
+          {
+            "type": "",
+            "is_oa": "true",
+            "license": "",
+            "url": "https://europepmc.org/abstract/MED/34578047"
+          }
+        ],
+        "publication_published_year": 2021.0,
+        "access_is_oa": "true",
+        "doi": "10.3390/polym13183146",
+        "unique_id": "paper:10.3390/polym13183146",
+        "keywords": [
+          "[\"Li-ion batteries\",\"LiFePO4 cathode\",\"electrochemical performance\",\"polymer binder\",\"structure design.\"]",
+          "Materials science",
+          "Cathode",
+          "Composite material",
+          "Rational design",
+          "Nanotechnology",
+          "Engineering",
+          "Electrical engineering",
+          "electrochemical performance",
+          "Li-ion batteries",
+          "LiFePO4 cathode",
+          "polymer binder",
+          "structure design.",
+          "structure design"
+        ],
+        "doc_id": "69c1302a3423644b5a6413e1a325072cfddd770f4bfd3859175ffe2d93f57e5c",
+        "language": "en",
+        "citation_normalized_percentile": {
+          "value": 0.84578007,
+          "is_in_top_10_percent": "false",
+          "is_in_top_1_percent": "false"
+        },
+        "access_oa_url": [
+          "https://doi.org/10.3390/polym13183146",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8473138/"
+        ],
+        "publication_venue_issn": [
+          "2073-4360"
+        ],
+        "fwci": 1.7289,
+        "reference_count": 106.0,
+        "title": "Rational Design of Effective Binders for LiFePO4 Cathodes",
+        "author": [
+          {
+            "orcid": "https://orcid.org/0000-0002-1695-0006",
+            "name": "Shu Huang"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0003-1276-238X",
+            "name": "Xiaoting Huang"
+          },
+          {
+            "orcid": "",
+            "name": "Youyuan Huang"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-1480-2026",
+            "name": "Xueqin He"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0002-1041-7729",
+            "name": "Haitao Zhuo"
+          },
+          {
+            "orcid": "https://orcid.org/0000-0001-8892-5136",
+            "name": "Shaojun Chen"
+          }
+        ],
+        "isbns": []
+      }
+    ],
+    "total_count": 10000,
+    "page": 1,
+    "page_size": 8,
+    "total_pages": 1250,
+    "search_time_ms": 629.58,
+    "next_cursor": "eyJzIjpbMzcuODg3Njk1LCJwYXBlcjoxMC4zMzkwL3BvbHltMTMxODMxNDYiXX0=",
+    "request_tokens": 83,
+    "response_tokens": 2906,
+    "facets": [],
+    "biz_code": 0,
+    "code": "SUCCESS",
+    "message": "成功"
   }
 }
