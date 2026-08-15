@@ -243,7 +243,7 @@ def analyze_node(state: ResearchState) -> dict:
         """调用现有falsification_check处理hypothesis和evidence_summary。"""
         falsification_result = falsification_check(
             hypothesis=hypothesis,
-            evidence_summary=crew_results["evidence_summary"],
+            evidence_summary=crew_results.get("evidence_summary", ""),
         )
         crew_results["falsification_result"] = falsification_result
         return json.dumps(falsification_result, ensure_ascii=False)
@@ -254,7 +254,7 @@ def analyze_node(state: ResearchState) -> dict:
         mechanism_result = check_mechanism_consistency(
             hypothesis=hypothesis,
             domain=state["domain"],
-            evidence_summary=crew_results["evidence_summary"],
+            evidence_summary=crew_results.get("evidence_summary", ""),
         )
         state_update = build_state_update(
             crew_results["claims_result"],
@@ -273,9 +273,11 @@ def analyze_node(state: ResearchState) -> dict:
             api_key=config.CONFIG["deepseek_key"].strip(),
             temperature=0.3,
             max_tokens=1024,
-            additional_params={
-                "extra_body": {"thinking": {"type": "disabled"}},
-            },
+            additional_params=(
+                {"extra_body": {"thinking": {"type": "disabled"}}}
+                if config.CONFIG.get("disable_thinking", True)
+                else {}
+            ),
         )
 
         collector_agent = Agent(
@@ -396,7 +398,8 @@ def analyze_node(state: ResearchState) -> dict:
         ):
             raise ValueError("CrewAI输出与原analyze_node返回结构不兼容。")
         return {field: parsed_output[field] for field in expected_fields}
-    except Exception:
+    except Exception as e:  # noqa: BLE001
+        print(f"⚠️ CrewAI 编排失败({type(e).__name__}: {e})，已回退到原有分析逻辑")
         return run_original_analysis()
 
 

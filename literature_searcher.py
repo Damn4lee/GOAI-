@@ -17,6 +17,7 @@ from config import (
     LOG_FILE_PATH,
     SCIVERSE_API_TOKEN,
     llm_client,
+    llm_extra_params,
     state,
 )
 
@@ -125,8 +126,8 @@ class SciverseClient:
         "meta-catalog": "https://api.sciverse.space/meta-catalog",
     }
 
-    CACHE_FILE = "sciverse_cache.json"
-    LOG_FILE = "log.txt"
+    CACHE_FILE = CACHE_FILE_PATH
+    LOG_FILE = LOG_FILE_PATH
     MAX_REQUESTS_PER_MINUTE = 25
     MAX_RETRIES = 3
 
@@ -141,15 +142,22 @@ class SciverseClient:
         self.tokens = self.MAX_REQUESTS_PER_MINUTE
         self.last_refill_time = time.monotonic()
         self.refill_rate = self.MAX_REQUESTS_PER_MINUTE / 60.0
+        self.ttl_seconds = int(CONFIG.get("cache_ttl_days", 30)) * 86400
 
     # ==================== 缓存 ====================
 
     def _load_cache(self) -> dict:
-        """加载本地缓存。"""
+        """加载本地缓存；兼容旧格式并自动迁移到带时间戳的格式。"""
         if os.path.exists(self.CACHE_FILE):
             try:
                 with open(self.CACHE_FILE, "r", encoding="utf-8") as f:
-                    return json.load(f)
+                    data = json.load(f)
+                if not isinstance(data, dict):
+                    return {}
+                sample = next(iter(data.values()), None)
+                if isinstance(sample, dict) and "ts" in sample and "data" in sample:
+                    return data
+                return {k: {"ts": time.time(), "data": v} for k, v in data.items()}
             except (json.JSONDecodeError, IOError):
                 return {}
         return {}
@@ -298,12 +306,13 @@ class SciverseClient:
         cache_key = self._make_cache_key(endpoint, payload)
 
         with self.cache_lock:
-            if cache_key in self.cache:
+            hit = self.cache.get(cache_key)
+            if hit and (time.time() - hit.get("ts", 0)) < self.ttl_seconds:
                 elapsed_ms = (time.time() - start_time) * 1000
                 self._write_log(timestamp, log_label or endpoint, True, elapsed_ms)
                 if self.state is not None:
                     self.state["api_stats"]["cache_hits"] += 1
-                return self.cache[cache_key]
+                return hit["data"]
 
         self._acquire_token()
 
@@ -327,7 +336,7 @@ class SciverseClient:
         # 缓存成功响应
         if not result.get("error"):
             with self.cache_lock:
-                self.cache[cache_key] = result
+                self.cache[cache_key] = {"ts": time.time(), "data": result}
                 self._save_cache()
 
         return result
@@ -392,7 +401,7 @@ class SciverseClient:
         elif endpoint == "content":
             payload = {"doc_id": "test"}
         elif endpoint == "meta-paper-relations":
-            payload = {"unique_id": "test", "relation_type": "related", "page_size": 1}
+            payload = {"unique_id": "test", "relation": "related", "page_size": 1}
         else:
             payload = {}
         return self._call_endpoint(endpoint, payload, log_label=f"test:{endpoint}")
@@ -804,10 +813,17 @@ def fetch_paper_content(unique_id: str = None, doi: str = None, title: str = Non
     # 3. paragraphs 级别
     if level == "paragraphs":
         try:
-            res = sciverse_client.agentic_search(
-                query=paper.get("title", doi or title),
-                page_size=5
-            )
+            res = None
+            doc_id = paper.get("doc_id")
+            if doc_id:
+                res = sciverse_client.content(doc_id=doc_id)
+                if res.get("error"):
+                    res = None
+            if res is None:
+                res = sciverse_client.agentic_search(
+                    query=paper.get("title", doi or title),
+                    page_size=5,
+                )
             if res.get("error"):
                 return {
                     "status": "error",
@@ -931,7 +947,7 @@ def filter_paper_relevance(paper: dict, research_question: str, criteria: list =
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=512,
-            extra_body={"thinking": {"type": "disabled"}},
+            extra_body=llm_extra_params(),
         )
         content = resp.choices[0].message.content
         parsed = _safe_parse_llm_json(content)

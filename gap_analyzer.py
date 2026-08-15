@@ -2,9 +2,12 @@
 
 import json
 import re
+import urllib.parse
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 from common import _safe_parse_llm_json, register_tool
-from config import CONFIG, llm_client
+from config import CONFIG, llm_client, llm_extra_params
 from literature_searcher import (
     _extract_papers,
     _normalize_paper,
@@ -34,7 +37,7 @@ from literature_searcher import (
     }
 )
 def falsification_check(hypothesis: str, evidence_summary: str):
-    """可证伪性检查工具"""
+    """可证伪性检查工具：优先要求 JSON 输出，正则解析仅作兜底。"""
     try:
         prompt = f"""
 你是一位严格的学术审稿人。请对以下假设进行可证伪性分析。
@@ -45,31 +48,31 @@ def falsification_check(hypothesis: str, evidence_summary: str):
 【支持证据摘要】
 {evidence_summary}
 
-请按以下格式输出分析结果：
-
-潜在漏洞：
-1. [漏洞1的具体描述]
-2. [漏洞2的具体描述]
-3. [漏洞3的具体描述]
-
-证据反驳分析：
-- 漏洞1：[该漏洞在多大程度上可以被现有证据反驳？]
-- 漏洞2：[该漏洞在多大程度上可以被现有证据反驳？]
-- 漏洞3：[该漏洞在多大程度上可以被现有证据反驳？]
-
-所需验证实验：
-[列出需要通过什么实验来进一步验证这些漏洞]
-
-最终判定：
-[从以下三个选项中选择一个：可证伪 / 部分可证伪 / 不可证伪]
+请严格输出 JSON（不要任何其他文字）：
+{{
+  "vulnerabilities": ["漏洞1的具体描述", "漏洞2的具体描述", "漏洞3的具体描述"],
+  "rebuttals": [{{"vulnerability": "漏洞1", "rebuttal": "现有证据能在多大程度上反驳"}}],
+  "required_experiments": ["验证实验1", "验证实验2"],
+  "verdict": "可证伪 或 部分可证伪 或 不可证伪"
+}}
 """
         response = llm_client.chat.completions.create(
             model=CONFIG["llm_model"],
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
-            extra_body={"thinking": {"type": "disabled"}},
+            max_tokens=1024,
+            extra_body=llm_extra_params(),
         )
         raw_output = response.choices[0].message.content.strip()
+        parsed = _safe_parse_llm_json(raw_output)
+        if isinstance(parsed, dict) and "parse_error" not in parsed:
+            return {
+                "status": "success",
+                "vulnerabilities": (parsed.get("vulnerabilities") or [])[:3],
+                "rebuttals": parsed.get("rebuttals", {}),
+                "required_experiments": parsed.get("required_experiments", ""),
+                "verdict": parsed.get("verdict", "未知"),
+            }
         return _parse_falsification_output(raw_output)
     except Exception as e:
         return {
@@ -116,6 +119,45 @@ def _parse_falsification_output(text: str) -> dict:
         return {"status": "parse_failed", "raw": text}
 
 
+def _doi_exists(doi: str) -> dict:
+    """用 CrossRef 核验 DOI 真实性；查不到时再用 DataCite 兜底（覆盖 arXiv/Zenodo）。"""
+    url = f"https://api.crossref.org/works/{urllib.parse.quote(doi)}?mailto=research.assistant@example.com"
+    try:
+        req = Request(url, headers={"User-Agent": "GOAI-ResearchAssistant/1.0 (mailto:research.assistant@example.com)"})
+        with urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        m = data.get("message", {})
+        year = None
+        for k in ("published-print", "published-online", "issued"):
+            parts = m.get(k, {}).get("date-parts") if m.get(k) else None
+            if parts and parts[0]:
+                year = parts[0][0]
+                break
+        return {
+            "valid": True,
+            "title": (m.get("title") or [""])[0],
+            "year": year,
+        }
+    except Exception:
+        pass
+
+    try:
+        url2 = f"https://api.datacite.org/dois/{urllib.parse.quote(doi)}"
+        req = Request(url2, headers={"User-Agent": "GOAI-ResearchAssistant/1.0"})
+        with urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        attrs = data.get("data", {}).get("attributes", {})
+        titles = attrs.get("titles") or [{}]
+        title = titles[0].get("title", "") if isinstance(titles, list) else ""
+        return {
+            "valid": True,
+            "title": title,
+            "year": attrs.get("publicationYear"),
+        }
+    except Exception:
+        return {"valid": False, "title": "", "year": None}
+
+
 @register_tool(
     description="【DOI验证】验证一个 DOI 是否真实存在，并判断给定断言是否被该论文支持。"
     "当某条证据声称来自某 DOI 时，调用本工具确认：1) DOI 是否真实存在；2) 该断言是否被论文内容支持。"
@@ -144,33 +186,26 @@ def verify_doi_reference(doi: str, claim: str):
     if not doi or not doi.startswith("10."):
         return {"status": "invalid", "doi": doi, "message": "DOI 格式异常，应以 10. 开头"}
 
-    # 1. 确认 DOI 存在并获取元数据
+    # 1. 用 CrossRef/DataCite 确认 DOI 真实存在并获取元数据
     try:
-        res = sciverse_client.meta_search(query=doi, page=1, page_size=3)
-        if res.get("error"):
-            return {
-                "status": "error",
-                "doi": doi,
-                "message": f"Sciverse 请求失败: {res.get('message', '')}"
-            }
-        papers = _extract_papers(res)
-        if not papers:
-            return {"status": "not_found", "doi": doi, "message": "Sciverse 未返回该 DOI 对应的论文"}
-        paper = _normalize_paper(papers[0])
-        matched_doi = paper.get("doi", "")
-        if matched_doi != doi:
-            return {
-                "status": "not_found",
-                "doi": doi,
-                "matched_doi": matched_doi,
-                "message": "未精确匹配到该 DOI"
-            }
+        info = _doi_exists(doi)
+        if not info.get("valid"):
+            return {"status": "not_found", "doi": doi, "message": "CrossRef/DataCite 未找到该 DOI"}
+        paper = {
+            "unique_id": None,
+            "doc_id": None,
+            "title": info.get("title", ""),
+            "abstract": "",
+            "doi": doi,
+            "publication_published_year": info.get("year"),
+            "publication_venue_name_unified": "",
+        }
     except Exception as e:
-        return {"status": "error", "doi": doi, "message": f"DOI 查找异常: {str(e)}"}
+        return {"status": "error", "doi": doi, "message": f"DOI 核验异常: {str(e)}"}
 
     # 2. 获取段落内容
     paragraphs_result = fetch_paper_content(
-        unique_id=paper.get("unique_id"),
+        doi=doi,
         level="paragraphs"
     )
     paragraphs = ""
@@ -203,18 +238,29 @@ def verify_doi_reference(doi: str, claim: str):
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=1024,
-            extra_body={"thinking": {"type": "disabled"}},
+            extra_body=llm_extra_params(),
         )
         llm_text = resp.choices[0].message.content.strip()
 
-        # 解析 verdict
+        # 解析 verdict：优先匹配 "verdict:" 行，其次整词匹配，避免 "not supported" 被 "supported" 误命中
         verdict = "not_found"
-        if "partially_supported" in llm_text.lower() or "partial" in llm_text.lower():
-            verdict = "partial"
-        elif "supported" in llm_text.lower():
-            verdict = "verified"
-        elif "unsupported" in llm_text.lower():
-            verdict = "unsupported"
+        llm_lower = llm_text.lower()
+        m = re.search(r"verdict\s*[:：]\s*[\[（(]?\s*([a-z_]+)", llm_lower)
+        if m:
+            word = m.group(1)
+            if word.startswith("partial"):
+                verdict = "partial"
+            elif word == "supported":
+                verdict = "verified"
+            elif word == "unsupported":
+                verdict = "unsupported"
+        else:
+            if re.search(r"\bpartially[_\s-]*supported\b", llm_lower):
+                verdict = "partial"
+            elif re.search(r"\bunsupported\b|\bnot[_\s-]+supported\b", llm_lower):
+                verdict = "unsupported"
+            elif re.search(r"\bsupported\b", llm_lower):
+                verdict = "verified"
 
         # 状态映射
         status_map = {
@@ -301,7 +347,7 @@ def extract_claims(paper_text: str, hypothesis: str = ""):
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=1024,
-            extra_body={"thinking": {"type": "disabled"}},
+            extra_body=llm_extra_params(),
         )
         content = resp.choices[0].message.content
         parsed = _safe_parse_llm_json(content)
@@ -375,7 +421,7 @@ def check_mechanism_consistency(hypothesis: str, domain: str, evidence_summary: 
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=1024,
-            extra_body={"thinking": {"type": "disabled"}},
+            extra_body=llm_extra_params(),
         )
         content = resp.choices[0].message.content
         parsed = _safe_parse_llm_json(content)

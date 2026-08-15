@@ -13,6 +13,7 @@ agent_state.json
 ga_results.json
 ga_log.txt
 AI科研助手专用目录/
+data/
 outputs/
 
 # Notebook 检查点

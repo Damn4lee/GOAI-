@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import json
-from openai import OpenAI
 
 import gap_analyzer
 import keyword_generator
 import literature_searcher
 from common import TOOL_REGISTRY, _safe_parse_llm_json, get_tools_list
-from config import CONFIG, PHASE_ORDER, PHASE_PROMPTS, SYSTEM_PROMPT, llm_client, state
+from config import CONFIG, PHASE_ORDER, PHASE_PROMPTS, SYSTEM_PROMPT, llm_client, llm_extra_params, state
 from literature_searcher import sciverse_client
 
 TOOLS = get_tools_list()
@@ -99,7 +98,7 @@ def run_agent(user_message: str, max_tool_rounds: int = None):
                 messages=messages,
                 tools=TOOLS,
                 temperature=0.5,
-                extra_body={"thinking": {"type": "disabled"}},
+                extra_body=llm_extra_params(),
             )
         except Exception as e:
             print(f"❌ [Round {round_num}] API错误: {type(e).__name__}: {e}")
@@ -178,6 +177,8 @@ def run_agent(user_message: str, max_tool_rounds: int = None):
                     "role": "user",
                     "content": "你的回复为空。请直接输出JSON格式的结果。"
                 })
+            phase_round_count += 1
+            total_round += 1
             continue
 
         consecutive_empty = 0

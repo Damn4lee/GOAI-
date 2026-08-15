@@ -27,6 +27,12 @@
 
    # LangGraph 状态图流程
    python research_state_graph.py
+
+   # 材料设计遗传算法（可选）
+   python ga.py "LiFePO4 cathode doping rate performance"
+
+   # 评测脚手架
+   python evaluate.py
    ```
 
    也可以打开 `科研助手三.ipynb` 按 Cell 顺序运行。
@@ -42,6 +48,8 @@
 | `gap_analyzer.py` | 可证伪性检查、DOI 验证、断言提取、机制验证 |
 | `research_agent.py` | 6 阶段状态机 Agent 主循环 |
 | `research_state_graph.py` | LangGraph 状态图编排 |
+| `ga.py` | 材料遗传算法（随机种子可复现、适应度缓存、多采样降噪） |
+| `evaluate.py` | 评测脚手架（JSON 有效性 / DOI 核验通过率 / 召回率占位） |
 
 ## 安全说明
 
@@ -51,5 +59,5 @@
 ## 待办（已知问题）
 
 - `paper_relations` 端点参数已修正为 `relation`，但建议实测一次引用追踪；
-- 模型名默认 `deepseek-chat`（DeepSeek 官方模型），若换供应商需同步处理 `extra_body` 等专有参数；
-- 尚未建立评测集，改版质量无法量化对比。
+- `extra_body` 已通过 `CONFIG["disable_thinking"]` 做供应商开关，切换 OpenAI 等时置为 False；
+- `evaluate.py` 已提供评测脚手架，但 `expected_dois` 需要人工补充正确答案后才能计算召回率。
